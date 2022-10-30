@@ -55,6 +55,35 @@ string Restaurant ::get_Address()
   return Address;
 }
 
+int Cart::Restaurant_price()
+{
+}
+int Cart::Total_Amount()
+{
+}
+
+void Cart::fill_cart()
+{
+}
+void Cart::get_details()
+{
+}
+
+// class Cart
+// {
+// public:
+//   int Restaurant_price();
+//   int Total_Amount();
+//   void fill_cart();
+//   void get_details();
+
+// private:
+//   int Total_Price;
+//   vector<int> Picked;
+//   int Delivary_charges;
+//   int Govt_Tax;
+// };
+
 // class Restaurant
 // {
 // public:
