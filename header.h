@@ -37,6 +37,7 @@ public:
   Dish(bool, string, string, string, int);
   int get_price();
   void get_Details();
+  string dish_Name();
 
 private:
   bool isVeg;
@@ -60,25 +61,35 @@ private:
   string Restaurant_name;
   int Restaurant_id;
   string Address;
+
+protected:
   vector<Dish> Array__of_Dishes;
+};
+class Cart : public Restaurant
+{
+public:
+  void add_dish(int);
+  void dispaly_BILL();
+  int add_tax(int);
+  int Payment();
+
+private:
+  int Price;
+  float GST;
+  float bill;
+};
+
+class Delivary_Labour : public Person
+{
+public:
+  void get_discription();
+  void set_discription();
+
+private:
+  int No_Labour;
 };
 
 // 4. Cart class
-
-class Cart
-{
-public:
-  int Restaurant_price();
-  int Total_Amount();
-  void fill_cart();
-  void get_details();
-
-private:
-  int Total_Price;
-  vector<int> Picked;
-  int Delivary_charges;
-  int Govt_Tax;
-};
 
 // class Delivary_Labour : public Person
 // {
