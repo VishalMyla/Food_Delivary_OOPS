@@ -22,7 +22,7 @@ class User : public Person
 {
 public:
   User(bool, string, string, string, string); //
-  bool is_perimum();
+  bool is_Perimum();
   string get_address();
   string get_pw(); //
 
@@ -88,9 +88,10 @@ class Delivary_Labour : public Person
 public:
   bool isavailable();
   void display_Detalis();
+  void allocate_availability(bool);
 
 private:
-  bool isAvailable = true;
+  bool isAvailable;
 };
 
 //  7. Delivary Class
