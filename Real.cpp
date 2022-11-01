@@ -48,20 +48,21 @@ int main()
     users.insert({"roy_user", U1});
     users.insert({"ricky_user", U2});
     users.insert({"morty_user", U3});
-    map<string, Restaurant> restaurants;
-    restaurants.insert({"Quality", R1})
-            restaurants.insert({"Mehfil", R2})
-                restaurants.insert({"Seven_stars", R3})
-        // we add few restaurants here
-        cout
+    map<string, Restaurant> res;
+    res.insert({"Quality", R1});
+    res.insert({"Mehfil", R2});
+    res.insert({"Seven_stars", R3});
+    // we add few restaurants here
+    cout
         << "Enter 1 to login, 2 to signin , 3 to exit";
     cin >> s;
     switch (s)
     {
     case 1:
+    {
       cout << "Enter the username and password ";
       cin >> usr >> pw;
-      if (users[usr] != pw)
+      if (users[usr].get_pw() != pw)
       {
         cout << "Wrong password !!!" << endl;
       }
@@ -70,7 +71,7 @@ int main()
         string rest;
         cout << "enter the anme of the restaurant from which you want to order ";
         cin >> rest;
-        Restaurant r = restaurants[rest];
+        Restaurant r = res[rest];
         r.display_Details();
         Cart c;
         int no, pick;
@@ -80,28 +81,30 @@ int main()
         {
           cout << "Enter your pick ";
           cin >> pick;
-          c.add_dish(pick);
+          c.add_dish(pick, Restaurant & r);
         }
         c.dispaly_BILL();
       }
       break;
+    }
     case 2:
+    {
       int r;
       string add, nme, ph;
       bool pre;
       cout << "Enter the username and password ";
       cin >> usr >> pw;
       cout << "Enter your name, phone number ";
-      cin >> name >> ph;
+      cin >> nme >> ph;
       cout << "Enter your address ";
       getline(cin, add);
       cout << "enter 1 if your a premium member ,else 0 ";
       cin >> r;
-      pre = (r == 1) ? (true
-                        : false);
+      pre = (r == 1) ? true : false;
       User u(pre, nme, ph, add, pw);
       users.insert({usr, u});
       break;
+    }
     default:
       cout << "Program exited ...";
       exit(0);
