@@ -65,6 +65,8 @@ private:
 protected:
   vector<Dish> Array__of_Dishes;
 };
+
+//   4.Cart Class
 class Cart : public Restaurant
 {
 public:
@@ -89,18 +91,24 @@ private:
   int No_Labour;
 };
 
-// 4. Cart class
+class Delivary
+{
+public:
+  Delivary(string, string, string, int);
+  void dispaly_Details();
+  void Allocate_Delivary_Guy(Delivary_Labour);
 
-// class Delivary_Labour : public Person
-// {
-// public:
-//   void get_discrption();
-//   void set_discription();
+private:
+  string User_address;
+  string Restaurant_address;
+  string User_phone_number;
+  Delivary_Labour *ptr;
+  int Total_Amount;
+};
+class Delivary_Mangement
+{
+  Delivary_Labour Alloting_Delivary_Guy();
 
-// private:
-//   int No_Labours;
-// };
-
-// class Delivary_Management
-// {
-// };
+private:
+  Delivary_Labour Array_Available_Delivary[10];
+};
