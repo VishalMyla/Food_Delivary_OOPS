@@ -96,7 +96,26 @@ string Restaurant ::get_Address()
 {
   return Address;
 }
+Restaurant ::Restaurant(string Restaurant_name, int Restaurant_id, string Address)
+{
+  this->Restaurant_id = Restaurant_id;
+  this->Restaurant_name = Restaurant_name;
+  this->Address = Address;
+}
+//
 
+// public:
+//   Restaurant(string, int, string, vector<Dish>);
+//   void display_Details();
+//   void add_Dish(Dish);
+//   string get_Address();
+//   vector<Dish> Array__of_Dishes;
+//   // friend void Cart ::add_dish(int, Restaurant &);
+
+// private:
+//   string Restaurant_name;
+//   int Restaurant_id;
+//   string Address;
 //  5. Cart  working
 
 void Cart ::add_dish(int n, Restaurant &r)
@@ -163,6 +182,10 @@ void Delivary_Labour ::display_Detalis()
 void Delivary_Labour ::allocate_availability(bool a)
 {
   this->isAvailable = a;
+}
+Delivary_Labour ::Delivary_Labour(string naam, string phonenumber, bool isAvailable) : Person(naam, phonenumber)
+{
+  this->isAvailable = isAvailable;
 }
 //  8. Delivary Management
 Delivary_Labour Delivary_Mangement ::Alloting_Delivary_Guy()
