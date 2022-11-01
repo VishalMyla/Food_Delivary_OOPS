@@ -32,9 +32,9 @@ string User::get_address()
 {
   return Address;
 }
-bool User::is_perimum()
+bool User::is_Perimum()
 {
-  return is_perimum;
+  return premium;
 }
 //  3. Dish WORKING
 Dish ::Dish(bool isVeg, string Dish_name, string Section, string description, int price)
@@ -160,14 +160,18 @@ void Delivary_Labour ::display_Detalis()
   cout << "The Delivay boy Phone Number : " << get_number() << endl;
   cout << "The Avaliablity of the Delivay Boy is :" << isAvailable << endl;
 }
-
+void Delivary_Labour ::allocate_availability(bool a)
+{
+  this->isAvailable = a;
+}
 //  8. Delivary Management
 Delivary_Labour Delivary_Mangement ::Alloting_Delivary_Guy()
 {
   for (int i = 0; i < Array_Available_Delivary.size(); i++)
   {
-    if (Array_Available_Delivary[i].isavailable()){
-        return Array_Available_Delivary[i];
+    if (Array_Available_Delivary[i].isavailable())
+    {
+      return Array_Available_Delivary[i];
     }
   }
 }
