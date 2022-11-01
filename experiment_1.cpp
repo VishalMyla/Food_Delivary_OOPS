@@ -77,12 +77,12 @@ void Cart ::add_dish(int n)
       Price += Array__of_Dishes[i].get_price();
     }
   }
-  GST = add_tax(Price);
+  GST = add_tax();
   bill = Price + GST;
 }
-int Cart ::add_tax(int a)
+int Cart ::add_tax()
 {
-  return (18 * a) / 100;
+  return (18 * Price) / 100;
 }
 void Cart ::dispaly_BILL()
 {
@@ -115,19 +115,15 @@ void Delivary::dispaly_Details()
   cout << "The Amount Needs to be paid is : " << Total_Amount << endl;
 }
 
-// 5.
+// 5. Delivary_Labour WOrking
 
-// class Delivary
-// {
-// public:
-//   Delivary(string, string, string, int);
-//   void dispaly_Details();
-//   void Allocate_Delivary_Guy(Delivary_Labour);
-
-// private:
-//   string User_address;
-//   string Restaurant_address;
-//   string User_phone_number;
-//   Delivary_Labour *ptr;
-//   int ;
-// };
+bool Delivary_Labour ::isavailable()
+{
+  return isAvailable;
+}
+void Delivary_Labour ::display_Detalis()
+{
+  cout << "The Delivary boy Name : " << get_name() << endl;
+  cout << "The Delivay boy Phone Number : " << get_number() << endl;
+  cout << "The Avaliablity of the Delivay Boy is :" << isAvailable << endl;
+}
