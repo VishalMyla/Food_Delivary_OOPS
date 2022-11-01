@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 #include "header.h"
-
+//  1. Dish WORKING
 Dish ::Dish(bool isVeg, string Dish_name, string Section, string description, int price)
 {
   this->isVeg = isVeg;
@@ -35,6 +35,9 @@ string Dish ::dish_Name()
 {
   return Dish_name;
 }
+
+// 2. Restaurant Working
+
 void Restaurant ::display_Details()
 {
   cout << "The name of the Restaurant is : " << Restaurant_name << endl;
@@ -48,7 +51,7 @@ void Restaurant ::display_Details()
   {
     Array__of_Dishes[i].get_Details();
     cout << endl;
-    cout << "Enter " << i << " in the cart if you want to add thid Dish" << endl;
+    cout << "Enter " << i << " in the cart if you want to add the Dish to the cart" << endl;
     cout << endl;
     cout << endl;
   }
@@ -61,6 +64,8 @@ string Restaurant ::get_Address()
 {
   return Address;
 }
+
+//  3. Cart  working
 
 void Cart ::add_dish(int n)
 {
@@ -75,32 +80,54 @@ void Cart ::add_dish(int n)
   GST = add_tax(Price);
   bill = Price + GST;
 }
+int Cart ::add_tax(int a)
+{
+  return (18 * a) / 100;
+}
 void Cart ::dispaly_BILL()
 {
   cout << "The Price of the Dishes Ordered is : $" << Price << endl;
   cout << "The Governament Tax : $" << GST << endl;
   cout << "The Total Amount to be Paid is : $" << bill << endl;
 }
+
 int Cart ::Payment()
 {
   return bill;
 }
-// Tax is remainng
-// class Cart : public Restaurant
+
+//  4. delivary working
+
+Delivary::Delivary(string User_address, string Restaurant_address, string User_phone_number, int Total_Amount, Delivary_Labour &ptr)
+{
+  this->User_address = User_address;
+  this->Restaurant_address = Restaurant_address;
+  this->User_phone_number = User_phone_number;
+  this->Total_Amount = Total_Amount;
+}
+void Delivary::dispaly_Details()
+{
+  cout << "The Package is Being Ordered BY the Address: " << endl;
+  cout << User_address;
+  cout << "You can contact them by the Phone number : " << User_phone_number << endl;
+  cout << "The Package is Being Delivared from the Address : " << endl;
+  cout << Restaurant_address;
+  cout << "The Amount Needs to be paid is : " << Total_Amount << endl;
+}
+
+// 5.
+
+// class Delivary
 // {
 // public:
-//   void add_dish(int);
-//   void dispaly_BILL();
-//   int add_tax(int);
+//   Delivary(string, string, string, int);
+//   void dispaly_Details();
+//   void Allocate_Delivary_Guy(Delivary_Labour);
 
 // private:
-//   int Price;
-//   float GST;
-//   float bill;
+//   string User_address;
+//   string Restaurant_address;
+//   string User_phone_number;
+//   Delivary_Labour *ptr;
+//   int ;
 // };
-
-int main()
-{
-  cout << endl
-       << "Hello World!! " << endl;
-}
