@@ -3,7 +3,40 @@
 #include <vector>
 using namespace std;
 #include "header.h"
-//  1. Dish WORKING
+//  1. persom working
+Person::Person(string nme, string phno)
+{
+  name = nme;
+  phonenumber = phno;
+}
+string Person::get_name()
+{
+  return name;
+}
+string Person::get_number()
+{
+  return phonenumber;
+}
+// 2.  User Working
+string User::get_pw()
+{
+  return pw;
+}
+User::User(bool ispre, string nme, string phno, string addr, string passw) : Person(nme, phno)
+{
+  premium = ispre;
+  Address = addr;
+  pw = passw;
+}
+string User::get_address()
+{
+  return Address;
+}
+bool User::is_perimum()
+{
+  return is_perimum;
+}
+//  3. Dish WORKING
 Dish ::Dish(bool isVeg, string Dish_name, string Section, string description, int price)
 {
   this->isVeg = isVeg;
@@ -36,14 +69,13 @@ string Dish ::dish_Name()
   return Dish_name;
 }
 
-// 2. Restaurant Working
+// 4. Restaurant Working
 
 void Restaurant ::display_Details()
 {
   cout << "The name of the Restaurant is : " << Restaurant_name << endl;
   cout << "The ID of the Restaurant is : " << Restaurant_id << endl;
   cout << "The Address of the Restaurant is : " << Address << endl;
-  cout << "The name of the Restaurant is : " << Restaurant_name << endl;
   cout << "The Dishes available in the Restaurant" << endl
        << endl;
   cout << endl;
@@ -65,16 +97,17 @@ string Restaurant ::get_Address()
   return Address;
 }
 
-//  3. Cart  working
+//  5. Cart  working
 
-void Cart ::add_dish(int n)
+void Cart ::add_dish(int n, Restaurant &r)
 {
-  for (int i = 0; i < Array__of_Dishes.size(); i++)
+  dishes.push_back(n);
+  for (int i = 0; i < r.Array__of_Dishes.size(); i++)
   {
     if (n == i)
     {
-      cout << "You have Picked " << Array__of_Dishes[i].dish_Name() << "in the cart : $" << Array__of_Dishes[i].get_price() << endl;
-      Price += Array__of_Dishes[i].get_price();
+      cout << "You have Picked " << r.Array__of_Dishes[i].dish_Name() << "in the cart : $" << r.Array__of_Dishes[i].get_price() << endl;
+      Price += r.Array__of_Dishes[i].get_price();
     }
   }
   GST = add_tax();
@@ -96,7 +129,7 @@ int Cart ::Payment()
   return bill;
 }
 
-//  4. delivary working
+//  6. delivary working
 
 Delivary::Delivary(string User_address, string Restaurant_address, string User_phone_number, int Total_Amount, Delivary_Labour &ptr)
 {
@@ -115,7 +148,7 @@ void Delivary::dispaly_Details()
   cout << "The Amount Needs to be paid is : " << Total_Amount << endl;
 }
 
-// 5. Delivary_Labour WOrking
+// 7. Delivary_Labour Working
 
 bool Delivary_Labour ::isavailable()
 {
@@ -126,4 +159,15 @@ void Delivary_Labour ::display_Detalis()
   cout << "The Delivary boy Name : " << get_name() << endl;
   cout << "The Delivay boy Phone Number : " << get_number() << endl;
   cout << "The Avaliablity of the Delivay Boy is :" << isAvailable << endl;
+}
+
+//  8. Delivary Management
+Delivary_Labour Delivary_Mangement ::Alloting_Delivary_Guy()
+{
+  for (int i = 0; i < Array_Available_Delivary.size(); i++)
+  {
+    if (Array_Available_Delivary[i].isavailable()){
+        return Array_Available_Delivary[i];
+    }
+  }
 }
