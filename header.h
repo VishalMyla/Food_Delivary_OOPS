@@ -52,7 +52,7 @@ private:
 class Restaurant
 {
 public:
-  // Restaurant(string, int, string, int, Dish[10]);
+  Restaurant(string, int, string);
   void display_Details();
   void add_Dish(Dish);
   string get_Address();
@@ -86,6 +86,7 @@ private:
 class Delivary_Labour : public Person
 {
 public:
+  Delivary_Labour(string, string, bool);
   bool isavailable();
   void display_Detalis();
   void allocate_availability(bool);
