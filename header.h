@@ -2,7 +2,9 @@
 #include <string>
 #include <vector>
 using namespace std;
-
+#ifndef FOOD
+#define FOOD
+//  1.  Person Class
 class Person
 {
 public:
@@ -14,23 +16,22 @@ private:
   string name;
   string phonenumber;
 };
-
-// 1. User class
+//  2. User Class
 
 class User : public Person
 {
 public:
-  User(bool, string);
+  User(bool, string, string, string, string); //
   bool is_perimum();
   string get_address();
+  string get_pw(); //
 
 private:
   bool premium;
   string Address;
+  string pw; //
 };
-
-//  2.Dish class
-
+//  3. Dish class
 class Dish
 {
 public:
@@ -47,8 +48,7 @@ private:
   string description;
 };
 
-//  3.Restaurant class
-
+//  4. Restaurant class
 class Restaurant
 {
 public:
@@ -56,21 +56,21 @@ public:
   void display_Details();
   void add_Dish(Dish);
   string get_Address();
+  vector<Dish> Array__of_Dishes;
+  // friend void Cart ::add_dish(int, Restaurant &);
 
 private:
   string Restaurant_name;
   int Restaurant_id;
   string Address;
-
-protected:
-  vector<Dish> Array__of_Dishes;
 };
 
-//   4.Cart Class
-class Cart : public Restaurant
+//   5. Cart class
+class Cart
 {
 public:
-  void add_dish(int);
+  void add_dish(int, Restaurant &);
+
   void dispaly_BILL();
   int add_tax();
   int Payment();
@@ -79,9 +79,9 @@ private:
   int Price;
   float GST;
   float bill;
+  vector<int> dishes;
 };
-
-//  7. Delivary_Labour class
+//  6. Delivary_Labour class
 
 class Delivary_Labour : public Person
 {
@@ -93,7 +93,7 @@ private:
   bool isAvailable = true;
 };
 
-//  6. Delivary Class
+//  7. Delivary Class
 
 class Delivary
 {
@@ -108,11 +108,12 @@ private:
   Delivary_Labour *ptr;
   int Total_Amount;
 };
-
+// 8.Delivary_Mangement class
 class Delivary_Mangement
 {
   Delivary_Labour Alloting_Delivary_Guy();
 
 private:
-  Delivary_Labour Array_Available_Delivary[10];
+  vector<Delivary_Labour> Array_Available_Delivary;
 };
+#endif
