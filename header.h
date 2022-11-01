@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include <string>
 #include <vector>
 using namespace std;
@@ -94,9 +94,8 @@ private:
 class Delivary
 {
 public:
-  Delivary(string, string, string, int);
+  Delivary(string, string, string, int, Delivary_Labour &);
   void dispaly_Details();
-  void Allocate_Delivary_Guy(Delivary_Labour);
 
 private:
   string User_address;
