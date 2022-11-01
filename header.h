@@ -72,7 +72,7 @@ class Cart : public Restaurant
 public:
   void add_dish(int);
   void dispaly_BILL();
-  int add_tax(int);
+  int add_tax();
   int Payment();
 
 private:
@@ -81,15 +81,19 @@ private:
   float bill;
 };
 
+//  7. Delivary_Labour class
+
 class Delivary_Labour : public Person
 {
 public:
-  void get_discription();
-  void set_discription();
+  bool isavailable();
+  void display_Detalis();
 
 private:
-  int No_Labour;
+  bool isAvailable = true;
 };
+
+//  6. Delivary Class
 
 class Delivary
 {
@@ -104,6 +108,7 @@ private:
   Delivary_Labour *ptr;
   int Total_Amount;
 };
+
 class Delivary_Mangement
 {
   Delivary_Labour Alloting_Delivary_Guy();
