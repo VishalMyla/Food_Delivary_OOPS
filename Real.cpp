@@ -40,6 +40,8 @@ int main()
   Delivary_Labour L2("Sheaker", "9492189828", false);
   L1.display_Detalis();
   //  Part-2 Implementation
-
+  Cart c;
+  c.add_dish(0, R1);
+  cout << c.Payment();
   return 0;
 }

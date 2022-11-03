@@ -1,4 +1,3 @@
-
 #include <string>
 #include <vector>
 using namespace std;
@@ -56,7 +55,7 @@ public:
   void display_Details();
   void add_Dish(Dish);
   string get_Address();
-  string get_Restaurant_name();
+  string get_name();
   vector<Dish> Array__of_Dishes;
   // friend void Cart ::add_dish(int, Restaurant &);
 
@@ -115,8 +114,10 @@ private:
 // 8.Delivary_Mangement class
 class Delivary_Mangement
 {
+public:
   Delivary_Labour Alloting_Delivary_Guy();
-  void add_Delivay_Labour(Delivary_Labour);
+  void add_delivary(Delivary_Labour);
+  void end_allocation(Delivary_Labour);
 
 private:
   vector<Delivary_Labour> Array_Available_Delivary;

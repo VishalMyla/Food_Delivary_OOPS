@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-#include "header.h"
+#include "hijack.h"
 //  1. persom working
 Person::Person(string nme, string phno)
 {
@@ -22,11 +22,8 @@ string User::get_pw()
 {
   return pw;
 }
-User::User(bool ispre, string nme, string phno, string addr, string passw) : Person(nme, phno)
+User::User(bool ispre, string nme, string phno, string addr, string passw) : Person(nme, phno), premium(ispre), Address(addr), pw(passw)
 {
-  premium = ispre;
-  Address = addr;
-  pw = passw;
 }
 string User::get_address()
 {
@@ -88,6 +85,10 @@ void Restaurant ::display_Details()
     cout << endl;
   }
 }
+string Restaurant ::get_name()
+{
+  return Restaurant_name;
+}
 void Restaurant ::add_Dish(Dish d)
 {
   Array__of_Dishes.push_back(d);
@@ -96,15 +97,8 @@ string Restaurant ::get_Address()
 {
   return Address;
 }
-Restaurant ::Restaurant(string Restaurant_name, int Restaurant_id, string Address)
+Restaurant ::Restaurant(string R_nam, int R_i, string Addres) : Restaurant_id(R_i), Restaurant_name(R_nam), Address(Addres)
 {
-  this->Restaurant_id = Restaurant_id;
-  this->Restaurant_name = Restaurant_name;
-  this->Address = Address;
-}
-string Restaurant ::get_Restaurant_name()
-{
-  return Restaurant_name;
 }
 //
 
@@ -121,12 +115,7 @@ string Restaurant ::get_Restaurant_name()
 //   int Restaurant_id;
 //   string Address;
 //  5. Cart  working
-Cart::Cart()
-{
-  Price = 0;
-  GST = 0;
-  bill = 0;
-}
+
 void Cart ::add_dish(int n, Restaurant &r)
 {
   dishes.push_back(n);
@@ -156,6 +145,12 @@ int Cart ::Payment()
 {
   return bill;
 }
+Cart::Cart()
+{
+  Price = 0;
+  GST = 0;
+  bill = 0;
+}
 
 //  6. delivary working
 
@@ -171,8 +166,7 @@ void Delivary::dispaly_Details()
   cout << "The Package is Being Ordered BY the Address: " << endl;
   cout << User_address;
   cout << "You can contact them by the Phone number : " << User_phone_number << endl;
-  cout << "The Package is Being Delivared from the Address : " << endl;
-  cout << Restaurant_address;
+  cout << "The Package is Being Delivared from the Address : " << Restaurant_address << endl;
   cout << "The Amount Needs to be paid is : " << Total_Amount << endl;
 }
 
@@ -208,9 +202,17 @@ Delivary_Labour Delivary_Mangement ::Alloting_Delivary_Guy()
     }
   }
 }
-// freeing the delivary boy
-
-void Delivary_Mangement ::add_Delivay_Labour(Delivary_Labour D)
+void Delivary_Mangement ::add_delivary(Delivary_Labour D)
 {
   Array_Available_Delivary.push_back(D);
+}
+void Delivary_Mangement ::end_allocation(Delivary_Labour D)
+{
+  for (int i = 0; i < Array_Available_Delivary.size(); i++)
+  {
+    if (D.get_name() == Array_Available_Delivary[i].get_name())
+    {
+      Array_Available_Delivary[i].allocate_availability(true);
+    }
+  }
 }
