@@ -154,20 +154,22 @@ Cart::Cart()
 
 //  6. delivary working
 
-Delivary::Delivary(string User_address, string Restaurant_address, string User_phone_number, int Total_Amount, Delivary_Labour &ptr)
+Delivary::Delivary(string User_address, string Restaurant_address, string User_phone_number, int Total_Amount, Delivary_Labour &p)
 {
   this->User_address = User_address;
   this->Restaurant_address = Restaurant_address;
   this->User_phone_number = User_phone_number;
   this->Total_Amount = Total_Amount;
+  ptr = &p;
 }
 void Delivary::dispaly_Details()
 {
-  cout << "The Package is Being Ordered BY the Address: " << endl;
-  cout << User_address;
-  cout << "You can contact them by the Phone number : " << User_phone_number << endl;
-  cout << "The Package is Being Delivared from the Address : " << Restaurant_address << endl;
-  cout << "The Amount Needs to be paid is : " << Total_Amount << endl;
+  cout << "The Package is Being Ordered BY the Address: " << endl
+       << User_address << endl;
+  cout << "Customer number :  " << User_phone_number << endl;
+  cout << "The Package is Being Delivared from the Address : " << endl
+       << Restaurant_address << endl;
+  cout << "The Amount Needs to be paid is : $" << Total_Amount << endl;
 }
 
 // 7. Delivary_Labour Working
