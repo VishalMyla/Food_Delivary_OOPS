@@ -91,11 +91,18 @@ public:
   bool isavailable();
   void display_Detalis();
   void allocate_availability(bool);
+  friend ostream &operator<<(ostream &, Delivary_Labour *);
 
 private:
   bool isAvailable;
 };
 
+ostream &operator<<(ostream &s, Delivary_Labour *p)
+{
+  s << "Name of the delivary boy is " << p->get_name() << endl;
+  s << "The deliavry boys phone number is " << p->get_number() << endl;
+  return s;
+}
 //  7. Delivary Class
 
 class Delivary

@@ -170,6 +170,7 @@ void Delivary::dispaly_Details()
   cout << "The Package is Being Delivared from the Address : " << endl
        << Restaurant_address << endl;
   cout << "The Amount Needs to be paid is : $" << Total_Amount << endl;
+  cout << ptr;
 }
 
 // 7. Delivary_Labour Working
