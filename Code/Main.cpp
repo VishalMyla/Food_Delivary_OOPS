@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <cstdlib>
 #include "hijack.h"
 #include "def.cpp"
 using namespace std;
@@ -134,6 +135,8 @@ int main()
         cin >> checker;
         DM.end_allocation(d);
         cout << "Thank You for using our Application!! " << endl;
+        system("pause");
+        system("cls");
       }
       break;
     }
@@ -153,11 +156,14 @@ int main()
       pre = (r == 1) ? true : false;
       User u(pre, usr, ph, add, pw);
       usr_array.push_back(u);
+      system("pause");
+      system("cls");
       break;
     }
     default:
       cout << "Program exited ...";
       exit(0);
+
       break;
     }
   }

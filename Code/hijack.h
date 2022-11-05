@@ -57,8 +57,7 @@ public:
   string get_Address();
   string get_name();
 
-  // friend void Cart ::add_dish(int, Restaurant &);
-  friend class Cart;
+   friend class Cart;
 
 private:
   string Restaurant_name;
@@ -99,12 +98,6 @@ private:
   bool isAvailable;
 };
 
-ostream &operator<<(ostream &s, Delivary_Labour *p)
-{
-  s << "Name of the delivary boy is " << p->get_name() << endl;
-  s << "The deliavry boys phone number is " << p->get_number() << endl;
-  return s;
-}
 //  7. Delivary Class
 
 class Delivary

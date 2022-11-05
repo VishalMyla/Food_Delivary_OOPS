@@ -193,6 +193,12 @@ Delivary_Labour ::Delivary_Labour(string naam, string phonenumber, bool isAvaila
 {
   this->isAvailable = isAvailable;
 }
+ostream &operator<<(ostream &s, Delivary_Labour *p) // -> Operator Overloading
+{
+  s << "Name of the delivary boy is " << p->get_name() << endl;
+  s << "The deliavry boys phone number is " << p->get_number() << endl;
+  return s;
+}
 //  8. Delivary Management
 Delivary_Labour Delivary_Mangement ::Alloting_Delivary_Guy()
 {
