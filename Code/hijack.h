@@ -56,13 +56,15 @@ public:
   void add_Dish(Dish);
   string get_Address();
   string get_name();
-  vector<Dish> Array__of_Dishes;
+
   // friend void Cart ::add_dish(int, Restaurant &);
+  friend class Cart;
 
 private:
   string Restaurant_name;
   int Restaurant_id;
   string Address;
+  vector<Dish> Array__of_Dishes;
 };
 
 //   5. Cart class
