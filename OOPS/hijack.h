@@ -56,8 +56,6 @@ public:
   void add_Dish(Dish);
   string get_Address();
   string get_name();
-
-  // friend void Cart ::add_dish(int, Restaurant &);
   friend class Cart;
 
 private:
@@ -91,7 +89,6 @@ class Delivary_Labour : public Person
 public:
   Delivary_Labour(string, string, bool);
   bool isavailable();
-  //void display_Detalis();
   void allocate_availability(bool);
   friend ostream &operator<<(ostream &, Delivary_Labour *);
 
