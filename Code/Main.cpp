@@ -5,10 +5,8 @@
 #include "hijack.h"
 #include "def.cpp"
 using namespace std;
-
-int main()
+void Database(vector<User> &usr_array, vector<Restaurant> &rest_array, Delivary_Mangement &DM)
 {
-  //  Part-1 : Database
   Dish D1(true, "Manchurian", "Starter", "Manchurian is a class of Indian Chinese dishes made by roughly chopping and deep-frying ingredients", 150);
   Dish D2(false, "chicken_handi", "Main_course", "Chicken Handi in a black bowl on a grey towel.", 200);
   Dish D3(true, "Biriyani", "Main_course", "Veg biryani is an aromatic rice dish made with basmati rice, spices & mixed veggies.", 300);
@@ -39,17 +37,25 @@ int main()
   Delivary_Labour L1("Prashanth", "+919390026751", true);
   Delivary_Labour L2("Sheaker", "+919492189828", false);
 
-  Delivary_Mangement DM;
   DM.add_delivary(L1);
   DM.add_delivary(L2);
-  vector<User> usr_array;
+
   usr_array.push_back(U1);
   usr_array.push_back(U2);
   usr_array.push_back(U3);
-  vector<Restaurant> rest_array;
+
   rest_array.push_back(R1);
   rest_array.push_back(R2);
   rest_array.push_back(R3);
+}
+int main()
+{
+  //  Part-1 : Database
+  Delivary_Mangement DM;
+  vector<User> usr_array;
+  vector<Restaurant> rest_array;
+  Database(usr_array, rest_array, DM);
+
   // Part -2 : Implementation
   while (true)
   {
@@ -90,7 +96,7 @@ int main()
         }
         cout << "enter the name of the restaurant from which you want to order :" << endl;
         cin >> rest;
-        for (i = 0; i < i < rest_array.size(); i++)
+        for (i = 0; i < rest_array.size(); i++)
         {
           if (rest_array[i].get_name() == rest)
           {

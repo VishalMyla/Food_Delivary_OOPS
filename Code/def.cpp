@@ -204,6 +204,7 @@ Delivary_Labour Delivary_Mangement ::Alloting_Delivary_Guy()
       return Array_Available_Delivary[i];
     }
   }
+  return Array_Available_Delivary[0];
 }
 void Delivary_Mangement ::add_delivary(Delivary_Labour D)
 {
