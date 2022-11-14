@@ -1,10 +1,4 @@
-*.exe
-experiment_1.cpp
-header.h
-Real
-real.cpp
-rou.txt
-rough
-rough.cpp
-Exp/
+OOPS/*.exe
 Code/
+rou.txt
+.vscode/
