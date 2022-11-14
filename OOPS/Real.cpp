@@ -2,7 +2,8 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "hijack.h"
+# include <string>
+#include "declarations.h"
 #include "def.cpp"
 using namespace std;
 struct My_Exception:exception{
@@ -180,8 +181,25 @@ int main()
       bool pre;
       cout << "Enter the username and password ";
       cin >> usr >> pw;
-      cout << "Enter your phone number ";
-      cin >> ph;
+      while(1){
+        try{
+          cout << "Enter your phone number ";
+          cin >> ph;
+          if (ph.length()!=13)
+          {
+            throw My_Exception("Invalid Phone Number...");
+          }
+          int k = stoi(ph.substr(2,10));
+          break;
+        }
+        catch(My_Exception e)
+        {
+          e.what();
+        }
+        catch(...){
+          cout<<endl<<"Invalid characters entered"<<endl<<endl;
+        }
+      }
       cout << "Enter your address ";
       cin >> add;
       cout << "enter 1 if your a premium member ,else 0 ";

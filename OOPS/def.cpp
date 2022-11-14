@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-#include "hijack.h"
+#include "declarations.h"
 //  1. persom working
 Person::Person(string nme, string phno)
 {
