@@ -2,7 +2,8 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "hijack.h"
+# include <string>
+#include "declarations.h"
 #include "def.cpp"
 using namespace std;
 struct My_Exception:exception{
@@ -101,6 +102,7 @@ int main()
         e.what();
         break;
       }
+        system("cls");
         string rest;
         User u = usr_array[i];
         cout << endl
@@ -130,6 +132,7 @@ int main()
             e.what();
           }
         }
+        system("cls");
         Restaurant r = rest_array[i];
         r.display_Details();
         Cart c;
@@ -154,8 +157,10 @@ int main()
           cout << endl
                << "As you are a premium member you were offered a 5 percent discount!!!" << endl;
           cout << endl
-               << "Effective price to be paid is " << price << endl;
+               << "Effective price to be paid is " << price << endl << endl;
+          system("pause");
         }
+        system("cls");
         Delivary_Labour d = DM.Alloting_Delivary_Guy();
         Delivary del(u.get_address(), r.get_Address(), u.get_number(), price, d);
         del.dispaly_Details();
@@ -164,7 +169,9 @@ int main()
              << "-------------------Enter a number after you received your parcel----------" << endl;
         cin >> checker;
         DM.end_allocation(d);
-        cout << "Thank You for using our Application!! " << endl;
+        cout << "Thank You for using our Application!! " << endl << endl;
+        system("pause");
+        system("cls");
       break;
     }
     case 2:
@@ -174,8 +181,25 @@ int main()
       bool pre;
       cout << "Enter the username and password ";
       cin >> usr >> pw;
-      cout << "Enter your phone number ";
-      cin >> ph;
+      while(1){
+        try{
+          cout << "Enter your phone number ";
+          cin >> ph;
+          if (ph.length()!=13)
+          {
+            throw My_Exception("Invalid Phone Number...");
+          }
+          int k = stoi(ph.substr(2,10));
+          break;
+        }
+        catch(My_Exception e)
+        {
+          e.what();
+        }
+        catch(...){
+          cout<<endl<<"Invalid characters entered"<<endl<<endl;
+        }
+      }
       cout << "Enter your address ";
       cin >> add;
       cout << "enter 1 if your a premium member ,else 0 ";
@@ -183,6 +207,7 @@ int main()
       pre = (r == 1) ? true : false;
       User u(pre, usr, ph, add, pw);
       usr_array.push_back(u);
+      system("cls");
       break;
     }
     default:

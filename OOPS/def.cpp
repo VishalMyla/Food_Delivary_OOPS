@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-#include "hijack.h"
+#include "declarations.h"
 //  1. persom working
 Person::Person(string nme, string phno)
 {
@@ -150,13 +150,14 @@ Delivary::Delivary(string User_address, string Restaurant_address, string User_p
   this->Restaurant_address = Restaurant_address;
   this->User_phone_number = User_phone_number;
   this->Total_Amount = Total_Amount;
+  this->ptr=&ptr;
 }
 void Delivary::dispaly_Details()
 {
-  cout << "The Package is Being Ordered BY the Address: " << endl;
-  cout << User_address;
+  cout << "The Package is Being Ordered BY the Address: " << User_address << endl;
   cout << "You can contact them by the Phone number : " << User_phone_number << endl;
-  cout << "The Package is Being Delivared from the Address : " << Restaurant_address << endl;
+  cout << "The Package is Being Delivared from the Address : " << Restaurant_address << endl << endl;
+  cout << ptr << endl;
   cout << "The Amount Needs to be paid is : " << Total_Amount << endl;
 }
 
