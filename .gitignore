@@ -1,4 +1,5 @@
-Code/
-.vscode/
+Code/*.exe
+.vscode/setting.josn
 OOPS/*.exe
 rou.txt
+g
